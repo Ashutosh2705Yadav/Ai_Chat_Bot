@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Advisors & AI Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-6 shadow-lg">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold">🚀 Startup Advisor & AI Chatbot</h1>
+            <p class="text-sm text-gray-200 mt-1">Get expert guidance and instant answers to your startup questions.</p>
+        </div>
+    </header>
+
+    <!-- Chatbot Section -->
+    <div class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-lg max-w-2xl">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">💬 AI Startup Chatbot</h2>
+        
+        <div class="mb-3">
+            <input type="text" id="userInput" placeholder="Ask something about startups..." 
+                class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+        </div>
+        
+        <button onclick="getChatbotResponse()" 
+            class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition w-full">
+            ➤ Ask
+        </button>
+
+        <div id="chatbotResponse" class="mt-4 text-gray-700 p-3 bg-gray-100 rounded-lg shadow-md min-h-[50px]"></div>
+
+        <!-- Suggested Questions -->
+        <div class="mt-5">
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">🔹 Common Startup Questions:</h3>
+            <div class="grid grid-cols-2 gap-2">
+                <button onclick="fillQuestion(this)" class="faq-btn">How to get funding for a startup?</button>
+                <button onclick="fillQuestion(this)" class="faq-btn">Best way to market my startup?</button>
+                <button onclick="fillQuestion(this)" class="faq-btn">How do I find co-founders?</button>
+                <button onclick="fillQuestion(this)" class="faq-btn">What are common startup mistakes?</button>
+                <button onclick="fillQuestion(this)" class="faq-btn">How to pitch my startup to investors?</button>
+                <button onclick="fillQuestion(this)" class="faq-btn">What legal steps are needed to start a business?</button>
+                <button onclick="fillQuestion(this)" class="faq-btn">How can I validate my startup idea?</button>
+                <button onclick="fillQuestion(this)" class="faq-btn">What are the best revenue models?</button>
+                <button onclick="fillQuestion(this)" class="faq-btn">How important is branding for a startup?</button>
+                <button onclick="fillQuestion(this)" class="faq-btn">How do I attract my first customers?</button>
+                <button onclick="fillQuestion(this)" class="faq-btn">Should I bootstrap or seek investment?</button>
+                <button onclick="fillQuestion(this)" class="faq-btn">How to scale my startup?</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Startup Advisors Section -->
+    <div class="container mx-auto p-6 mt-10">
+        <h2 class="text-3xl font-bold text-center mb-6">🔍 Meet Your Startup Advisors</h2>
+        
+        <!-- Advisors Grid (Always Visible) -->
+        <div id="advisors" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Advisor Cards Injected Here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <style>
+        .faq-btn {
+            background-color: #f3f4f6;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .faq-btn:hover {
+            background-color: #d1d5db;
+        }
+    </style>
+</body>
+</html>
