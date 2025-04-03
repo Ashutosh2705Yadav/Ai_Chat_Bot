@@ -52,6 +52,59 @@
         </div>
     </div>
 
+    <!-- Startup Resources Section -->
+    <div class="container mx-auto p-6 mt-10 bg-white rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-center mb-6">📚 Startup Resources</h2>
+        <h3 class="text-lg font-semibold text-gray-700 mb-2">Recommended Books:</h3>
+        <ul class="list-disc pl-5 mb-4">
+            <li>"The Lean Startup" by Eric Ries</li>
+            <li>"Zero to One" by Peter Thiel</li>
+            <li>"Start with Why" by Simon Sinek</li>
+        </ul>
+        <h3 class="text-lg font-semibold text-gray-700 mb-2">Useful Tools:</h3>
+        <ul class="list-disc pl-5 mb-4">
+            <li>Slack - for team communication</li>
+            <li>Trello - for project management</li>
+            <li>Canva - for graphic design</li>
+        </ul>
+        <h3 class="text-lg font-semibold text-gray-700 mb-2">Helpful Platforms:</h3>
+        <ul class="list-disc pl-5">
+            <li>AngelList - for finding investors</li>
+            <li>Kickstarter - for crowdfunding</li>
+            <li>LinkedIn - for networking</li>
+        </ul>
+    </div>
+
+    <!-- Success Stories Section -->
+    <div class="container mx-auto p-6 mt-10 bg-white rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-center mb-6">🌟 Success Stories</h2>
+        <div class="mb-4">
+            <h3 class="font-semibold text-gray-800">Airbnb</h3>
+            <p class="text-gray-600">Started as a simple idea to rent out air mattresses, Airbnb has grown into a multi-billion dollar company revolutionizing the hospitality industry.</p>
+        </div>
+        <div class="mb-4">
+            <h3 class="font-semibold text-gray-800">Dropbox</h3>
+            <p class="text-gray-600">With a focus on simplicity and user experience, Dropbox transformed file storage and sharing, now boasting millions of users worldwide.</p>
+        </div>
+        <div class="mb-4">
+            <h3 class="font-semibold text-gray-800">Slack</h3>
+            <p class="text-gray-600">Originally developed as an internal tool for a gaming company, Slack has become a leading platform for team collaboration and communication.</p>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container mx-auto p-6 mt-10 bg-white rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-center mb-6">❓ Frequently Asked Questions</h2>
+        <div class="mb-4">
+            <h3 class="font-semibold text-gray-800">What is the best way to validate a startup idea?</h3>
+            <p class="text-gray-600">To validate a startup idea, you should start by conducting market research to understand your target audience. Creating a minimum viable product (MVP) and gathering feedback from early users can also provide valuable insights. Running surveys and analyzing competitors can help you refine your concept and ensure there's a demand for your solution.</p>
+        </div>
+        <div class="mb-4">
+            <h3 class="font-semibold text-gray-800">How can I effectively market my startup?</h3>
+            <p class="text-gray-600">Effective marketing for a startup involves identifying your target audience and tailoring your message accordingly. Utilize digital marketing strategies such as social media advertising, content marketing, and email campaigns. Collaborating with influencers and leveraging SEO can also enhance your visibility. Remember to track your marketing efforts and adjust your strategies based on performance data.</p>
+        </div>
+    </div>
+
     <!-- Startup Advisors Section -->
     <div class="container mx-auto p-6 mt-10">
         <h2 class="text-3xl font-bold text-center mb-6">🔍 Meet Your Startup Advisors</h2>
@@ -78,5 +131,65 @@
             background-color: #d1d5db;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    loadAdvisors();
+});
+
+// Load Advisors Immediately
+function loadAdvisors() {
+    const advisorsContainer = document.getElementById("advisors");
+
+    const advisors = [
+        { name: "John Doe", expertise: "Startup Funding", location: "San Francisco, USA", profile: "https://linkedin.com/in/johndoe" },
+        { name: "Jane Smith", expertise: "Growth Marketing", location: "London, UK", profile: "https://linkedin.com/in/janesmith" },
+        { name: "Arun Kumar", expertise: "Product Development", location: "Bangalore, India", profile: "https://linkedin.com/in/arunkumar" },
+        { name: "Maria Lopez", expertise: "Business Strategy", location: "Madrid, Spain", profile: "https://linkedin.com/in/marialopez" }
+    ];
+
+    advisorsContainer.innerHTML = advisors.map(advisor => `
+        <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
+            <h2 class="text-2xl font-semibold text-gray-800">${advisor.name}</h2>
+            <p class="text-gray-600 text-lg">${advisor.expertise}</p>
+            <p class="text-gray-500 text-sm mt-2">📍 ${advisor.location}</p>
+            <a href="${advisor.profile}" target="_blank" 
+                class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
+                🔗 View Profile
+            </a>
+        </div>
+    `).join('');
+}
+
+// Chatbot Responses
+const chatbotResponses = {
+    "how to get funding for a startup": "You can secure funding through various means such as angel investors, venture capital, crowdfunding platforms, or applying for small business grants. It's essential to prepare a solid business plan and pitch to attract potential investors.",
+    "best way to market my startup": "To effectively market your startup, utilize a combination of social media platforms, search engine optimization (SEO), paid advertising, and influencer partnerships. Building a community around your brand and engaging with your audience is crucial for long-term success.",
+    "how do i find co-founders": "Finding co-founders can be achieved by attending startup events, networking within industry-related communities, and using platforms like CoFoundersLab. It's important to look for individuals who share your vision and complement your skills.",
+    "what are common startup mistakes": "Common mistakes include ignoring customer feedback, failing to validate business ideas, mismanaging finances, and rushing the hiring process. Learning from these pitfalls can significantly improve your startup's chances of success.",
+    "how to pitch my startup to investors": "When pitching to investors, create a concise pitch deck that highlights your business model, market potential, and traction. Clearly articulate your revenue model and be prepared to answer tough questions about your business strategy.",
+    "what legal steps are needed to start a business": "Starting a business requires registering your company, obtaining necessary licenses and permits, and ensuring compliance with local laws. Setting up a proper tax structure and understanding legal obligations is also essential.",
+    "how can i validate my startup idea": "Validating your startup idea involves building a prototype and gathering feedback from potential users. Conducting surveys, analyzing market demand, and testing your idea with early adopters can provide valuable insights.",
+    "what are the best revenue models": "Different revenue models work for various niches, including subscription services, freemium models, affiliate marketing, and advertising. Assess your target market to determine which model aligns best with your business goals.",
+    "how important is branding for a startup": "Branding is crucial as it builds trust and recognition among customers. A strong brand identity can lead to customer loyalty and differentiate your startup in a competitive market.",
+    "how do i attract my first customers": "Attracting your first customers can involve offering discounts, leveraging referral programs, creating valuable content, and collaborating with influencers. Building a strong online presence and engaging with your target audience is key.",
+    "should i bootstrap or seek investment": "Bootstrapping allows you to maintain control over your business, while seeking investment can provide the necessary capital to scale quickly. Consider your growth strategy and financial needs when making this decision.",
+    "how to scale my startup": "Scaling your startup involves focusing on automating processes, hiring key personnel, optimizing operations, and exploring new markets. It's essential to have a clear growth strategy and adapt to changing market conditions."
+};
+
+// Get Chatbot Response
+function getChatbotResponse() {
+    const userInput = document.getElementById("userInput").value.toLowerCase().trim();
+    const chatbotResponse = document.getElementById("chatbotResponse");
+
+    chatbotResponse.innerHTML = chatbotResponses[userInput] || "Sorry, I don't have an answer for that yet.";
+}
+
+// Fill Input Box & Show Answer
+function fillQuestion(element) {
+    const question = element.innerText.toLowerCase();
+    document.getElementById("userInput").value = question;
+    getChatbotResponse();
+}
+    </script>
 </body>
 </html>
