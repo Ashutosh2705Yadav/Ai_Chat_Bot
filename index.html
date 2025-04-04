@@ -1,214 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startup Advisors & AI Chatbot</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Mono:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .faq-btn {
-            background-color: #374151;
-            padding: 10px;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-            text-align: center;
-            transition: 0.3s;
-            font-family: 'Poppins', sans-serif;
-        }
-        .faq-btn:hover {
-            background-color: #4b5563;
-        }
-        #chatbotResponse, .faq-btn, .faq-section p {
-            font-family: 'Roboto Mono', monospace;
-        }
-        h1, h2, h3 {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Startup Advisor Chatbot</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Roboto+Mono:wght@300;600&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-gray-900 text-gray-200">
 
-    <!-- Header -->
-    <header class="bg-gray-800 text-white py-6 shadow-lg">
-        <div class="container mx-auto text-center">
-            <h1 class="text-3xl font-bold">🚀 Startup Advisor & AI Chatbot</h1>
-            <p class="text-sm text-gray-200 mt-1">Get expert guidance and instant answers to your startup questions.</p>
-        </div>
-    </header>
+  <!-- Header -->
+  <header class="bg-gray-800 py-6 shadow-lg text-center">
+    <h1 class="text-3xl font-bold">🚀 Startup Advisor & AI Chatbot</h1>
+    <p class="text-sm text-gray-300 mt-1">Get guidance for your startup journey</p>
+  </header>
 
-    <!-- Chatbot Section -->
-    <div class="container mx-auto p-6 mt-8 bg-gray-800 rounded-lg shadow-lg max-w-2xl">
-        <h2 class="text-2xl font-semibold text-gray-300 mb-4 text-center">💬 AI Startup Chatbot</h2>
-        
-        <div class="mb-3">
-            <input type="text" id="userInput" placeholder="Ask something about startups..." 
-                class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
-        </div>
-        
-        <button onclick="getChatbotResponse()" 
-            class="bg-blue-600 hover:bg-blue-800 text-white px-6 py-2 rounded-lg transition w-full">
-            ➤ Ask
-        </button>
+  <!-- Chat Section -->
+  <main class="max-w-2xl mx-auto mt-10 p-6 bg-gray-800 rounded-lg shadow-md">
+    <h2 class="text-xl font-semibold text-gray-200 mb-4">💬 Ask the Chatbot</h2>
 
-        <div id="chatbotResponse" class="mt-4 text-gray-300 p-3 bg-gray-700 rounded-lg shadow-md min-h-[50px]"></div>
+    <input type="text" id="userInput" placeholder="Ask something about startups..." class="w-full p-3 rounded border border-gray-600 bg-gray-700 text-white focus:ring-2 focus:ring-blue-500"/>
 
-        <!-- Suggested Questions -->
-        <div class="mt-5">
-            <h3 class="text-lg font-semibold text-gray-300 mb-2">🔹 Common Startup Questions:</h3>
-            <div class="grid grid-cols-2 gap-2">
-                <button onclick="fillQuestion(this)" class="faq-btn bg-gray-700 hover:bg-gray-600 text-gray-200">How to get funding for a startup?</button>
-                <button onclick="fillQuestion(this)" class="faq-btn bg-gray-700 hover:bg-gray-600 text-gray-200">Best way to market my startup?</button>
-                <button onclick="fillQuestion(this)" class="faq-btn bg-gray-700 hover:bg-gray-600 text-gray-200">How do I find co-founders?</button>
-                <button onclick="fillQuestion(this)" class="faq-btn bg-gray-700 hover:bg-gray-600 text-gray-200">What are common startup mistakes?</button>
-                <button onclick="fillQuestion(this)" class="faq-btn bg-gray-700 hover:bg-gray-600 text-gray-200">How to pitch my startup to investors?</button>
-                <button onclick="fillQuestion(this)" class="faq-btn bg-gray-700 hover:bg-gray-600 text-gray-200">What legal steps are needed to start a business?</button>
-                <button onclick="fillQuestion(this)" class="faq-btn bg-gray-700 hover:bg-gray-600 text-gray-200">How can I validate my startup idea?</button>
-                <button onclick="fillQuestion(this)" class="faq-btn bg-gray-700 hover:bg-gray-600 text-gray-200">What are the best revenue models?</button>
-                <button onclick="fillQuestion(this)" class="faq-btn bg-gray-700 hover:bg-gray-600 text-gray-200">How important is branding for a startup?</button>
-                <button onclick="fillQuestion(this)" class="faq-btn bg-gray-700 hover:bg-gray-600 text-gray-200">How do I attract my first customers?</button>
-                <button onclick="fillQuestion(this)" class="faq-btn bg-gray-700 hover:bg-gray-600 text-gray-200">Should I bootstrap or seek investment?</button>
-                <button onclick="fillQuestion(this)" class="faq-btn bg-gray-700 hover:bg-gray-600 text-gray-200">How to scale my startup?</button>
-            </div>
-        </div>
-    </div>
+    <button onclick="getChatbotResponse()" class="mt-3 w-full bg-blue-600 hover:bg-blue-700 py-2 rounded text-white font-medium">
+      ➤ Ask
+    </button>
 
-    <!-- Startup Resources Section -->
-    <div class="container mx-auto p-6 mt-10 bg-gray-800 rounded-lg shadow-lg">
-        <h2 class="text-3xl font-bold text-center mb-6 text-gray-300">📚 Startup Resources</h2>
-        <h3 class="text-lg font-semibold text-gray-300 mb-2">Recommended Books:</h3>
-        <ul class="list-disc pl-5 mb-4 text-gray-300">
-            <li>"The Lean Startup" by Eric Ries</li>
-            <li>"Zero to One" by Peter Thiel</li>
-            <li>"Start with Why" by Simon Sinek</li>
-        </ul>
-        <h3 class="text-lg font-semibold text-gray-300 mb-2">Useful Tools:</h3>
-        <ul class="list-disc pl-5 mb-4 text-gray-300">
-            <li>Slack - for team communication</li>
-            <li>Trello - for project management</li>
-            <li>Canva - for graphic design</li>
-        </ul>
-        <h3 class="text-lg font-semibold text-gray-300 mb-2">Helpful Platforms:</h3>
-        <ul class="list-disc pl-5 text-gray-300">
-            <li>AngelList - for finding investors</li>
-            <li>Kickstarter - for crowdfunding</li>
-            <li>LinkedIn - for networking</li>
-        </ul>
-    </div>
+    <div id="chatbotResponse" class="mt-4 p-4 bg-gray-700 rounded min-h-[60px]"></div>
 
-    <!-- Success Stories Section -->
-    <div class="container mx-auto p-6 mt-10 bg-gray-800 rounded-lg shadow-lg">
-        <h2 class="text-3xl font-bold text-center mb-6 text-gray-300">🌟 Success Stories</h2>
-        <div class="mb-4">
-            <h3 class="font-semibold text-gray-300">Airbnb</h3>
-            <p class="text-gray-400">Started as a simple idea to rent out air mattresses, Airbnb has grown into a multi-billion dollar company revolutionizing the hospitality industry.</p>
-        </div>
-        <div class="mb-4">
-            <h3 class="font-semibold text-gray-300">Dropbox</h3>
-            <p class="text-gray-400">With a focus on simplicity and user experience, Dropbox transformed file storage and sharing, now boasting millions of users worldwide.</p>
-        </div>
-        <div class="mb-4">
-            <h3 class="font-semibold text-gray-300">Slack</h3>
-            <p class="text-gray-400">Originally developed as an internal tool for a gaming company, Slack has become a leading platform for team collaboration and communication.</p>
-        </div>
-    </div>
+    <!-- Suggested Questions -->
+    <section class="mt-6">
+      <h3 class="text-lg font-semibold mb-2">🔹 Common Startup Questions:</h3>
+      <div class="grid grid-cols-2 gap-2">
+        <button onclick="fillQuestion(this)" class="faq-btn">How to get funding for a startup?</button>
+        <button onclick="fillQuestion(this)" class="faq-btn">Best way to market my startup?</button>
+        <button onclick="fillQuestion(this)" class="faq-btn">How do I find co-founders?</button>
+        <button onclick="fillQuestion(this)" class="faq-btn">What are common startup mistakes?</button>
+        <button onclick="fillQuestion(this)" class="faq-btn">How to pitch my startup to investors?</button>
+        <button onclick="fillQuestion(this)" class="faq-btn">What legal steps are needed to start a business?</button>
+      </div>
+    </section>
+    <!-- Startup Advisors -->
+<section class="mt-10">
+    <h3 class="text-lg font-semibold mb-4">🔗 Connect with Real Startup Advisors:</h3>
+    <ul class="space-y-3">
+      <li>
+        <a href="https://www.linkedin.com/in/ycombinator/" target="_blank" class="text-blue-400 hover:underline">
+          🧠 Paul Graham (Y Combinator) – LinkedIn
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/naval/" target="_blank" class="text-blue-400 hover:underline">
+          🚀 Naval Ravikant – LinkedIn
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/sherylsandberg/" target="_blank" class="text-blue-400 hover:underline">
+          💼 Sheryl Sandberg – LinkedIn
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/jason-fried/" target="_blank" class="text-blue-400 hover:underline">
+          🛠️ Jason Fried – LinkedIn
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/ankurgarglinkedin/" target="_blank" class="text-blue-400 hover:underline">
+          🌱 Ankur Garg (Startup Mentor, India) – LinkedIn
+        </a>
+      </li>
+    </ul>
+  </section>
+  </main>
 
-    <!-- FAQ Section -->
-    <div class="container mx-auto p-6 mt-10 bg-gray-800 rounded-lg shadow-lg">
-        <h2 class="text-3xl font-bold text-center mb-6 text-gray-300">❓ Frequently Asked Questions</h2>
-        <div class="mb-4">
-            <h3 class="font-semibold text-gray-300">What is the best way to validate a startup idea?</h3>
-            <p class="text-gray-400">To validate a startup idea, you should start by conducting market research to understand your target audience. Creating a minimum viable product (MVP) and gathering feedback from early users can also provide valuable insights. Running surveys and analyzing competitors can help you refine your concept and ensure there's a demand for your solution.</p>
-        </div>
-        <div class="mb-4">
-            <h3 class="font-semibold text-gray-300">How can I effectively market my startup?</h3>
-            <p class="text-gray-400">Effective marketing for a startup involves identifying your target audience and tailoring your message accordingly. Utilize digital marketing strategies such as social media advertising, content marketing, and email campaigns. Collaborating with influencers and leveraging SEO can also enhance your visibility. Remember to track your marketing efforts and adjust your strategies based on performance data.</p>
-        </div>
-    </div>
+  <!-- Footer -->
+  <footer class="text-center text-gray-400 text-sm py-6 mt-10 bg-gray-800">
+    © 2025 Startup Advisor & Chatbot — Made by Ashutosh Yadav
+  </footer>
 
-    <!-- Startup Advisors Section -->
-    <div class="container mx-auto p-6 mt-10">
-        <h2 class="text-3xl font-bold text-center mb-6 text-gray-300">🔍 Meet Your Startup Advisors</h2>
-        
-        <!-- Advisors Grid (Always Visible) -->
-        <div id="advisors" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Advisor Cards Injected Here -->
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            loadAdvisors();
-        });
-
-        // Load Advisors Immediately
-        function loadAdvisors() {
-            const advisorsContainer = document.getElementById("advisors");
-
-            const advisors = [
-                { name: "John Doe", expertise: "Startup Funding", location: "San Francisco, USA", profile: "https://linkedin.com/in/johndoe" },
-                { name: "Jane Smith", expertise: "Growth Marketing", location: "London, UK", profile: "https://linkedin.com/in/janesmith" },
-                { name: "Arun Kumar", expertise: "Product Development", location: "Bangalore, India", profile: "https://linkedin.com/in/arunkumar" },
-                { name: "Maria Lopez", expertise: "Business Strategy", location: "Madrid, Spain", profile: "https://linkedin.com/in/marialopez" }
-            ];
-
-            advisorsContainer.innerHTML = advisors.map(advisor => `
-                <div class="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <h2 class="text-2xl font-semibold text-gray-300">${advisor.name}</h2>
-                    <p class="text-gray-400 text-lg">${advisor.expertise}</p>
-                    <p class="text-gray-500 text-sm mt-2">📍 ${advisor.location}</p>
-                    <a href="${advisor.profile}" target="_blank" 
-                        class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
-                        🔗 View Profile
-                    </a>
-                </div>
-            `).join('');
-        }
-
-        // Chatbot Responses
-        const chatbotResponses = {
-            "how to get funding for a startup": "You can secure funding through various means such as angel investors, venture capital, crowdfunding platforms, or applying for small business grants. It's essential to prepare a solid business plan and pitch to attract potential investors.",
-            "best way to market my startup": "To effectively market your startup, utilize a combination of social media platforms, search engine optimization (SEO), paid advertising, and influencer partnerships. Building a community around your brand and engaging with your audience is crucial for long-term success.",
-            "how do i find co-founders": "Finding co-founders can be achieved by attending startup events, networking within industry-related communities, and using platforms like CoFoundersLab. It's important to look for individuals who share your vision and complement your skills.",
-            "what are common startup mistakes": "Common mistakes include ignoring customer feedback, failing to validate business ideas, mismanaging finances, and rushing the hiring process. Learning from these pitfalls can significantly improve your startup's chances of success.",
-            "how to pitch my startup to investors": "When pitching to investors, create a concise pitch deck that highlights your business model, market potential, and traction. Clearly articulate your revenue model and be prepared to answer tough questions about your business strategy.",
-            "what legal steps are needed to start a business": "Starting a business requires registering your company, obtaining necessary licenses and permits, and ensuring compliance with local laws. Setting up a proper tax structure and understanding legal obligations is also essential.",
-            "how can i validate my startup idea": "Validating your startup idea involves building a prototype and gathering feedback from potential users. Conducting surveys, analyzing market demand, and testing your idea with early adopters can provide valuable insights.",
-            "what are the best revenue models": "Different revenue models work for various niches, including subscription services, freemium models, affiliate marketing, and advertising. Assess your target market to determine which model aligns best with your business goals.",
-            "how important is branding for a startup": "Branding is crucial as it builds trust and recognition among customers. A strong brand identity can lead to customer loyalty and differentiate your startup in a competitive market.",
-            "how do i attract my first customers": "Attracting your first customers can involve offering discounts, leveraging referral programs, creating valuable content, and collaborating with influencers. Building a strong online presence and engaging with your target audience is key.",
-            "should i bootstrap or seek investment": "Bootstrapping allows you to maintain control over your business, while seeking investment can provide the necessary capital to scale quickly. Consider your growth strategy and financial needs when making this decision.",
-            "how to scale my startup": "Scaling your startup involves focusing on automating processes, hiring key personnel, optimizing operations, and exploring new markets. It's essential to have a clear growth strategy and adapt to changing market conditions."
-        };
-
-        // Get Chatbot Response
-        function getChatbotResponse() {
-            const userInput = document.getElementById("userInput").value.toLowerCase().trim();
-            const chatbotResponse = document.getElementById("chatbotResponse");
-
-            chatbotResponse.innerHTML = chatbotResponses[userInput] || "Sorry, I don't have an answer for that yet.";
-        }
-
-        // Fill Input Box & Show Answer
-        function fillQuestion(element) {
-            const question = element.innerText.toLowerCase().trim();
-            document.getElementById("userInput").value = question;
-
-            // Ensure the correct key format for chatbotResponses
-            const formattedQuestion = question.replace(/\?/g, '').trim();
-            document.getElementById("chatbotResponse").innerHTML = chatbotResponses[formattedQuestion] || "Sorry, I don't have an answer for that yet.";
-        }
-    </script>
-    
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-400 text-center py-4 mt-10">
-        <p>© 2025 Startup Advisor & AI Chatbot. Created by Ashutosh Yadav.</p>
-    </footer>
+  <!-- Script -->
+  <script src="script.js"></script>
 </body>
 </html>
